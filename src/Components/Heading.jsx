@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Heading(props) {
   return (
@@ -7,10 +8,10 @@ function Heading(props) {
         <div className="flex items-center">
             <ul className="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
                 <li>
-                    <a href="/" className="text-gray-900 dark:text-white hover:underline" aria-current="page">Home</a>
+                    <Link to={"/"} className="text-gray-900 dark:text-white hover:underline" aria-current="page">Home</Link>
                 </li>
                 <li>
-                    <a href="/" className="text-gray-900 dark:text-white hover:underline">Mobiles</a>
+                    <Link to={"/mobiles"} className="text-gray-900 dark:text-white hover:underline">Mobiles</Link>
                 </li>
                 <li>
                     <a href="/" className="text-gray-900 dark:text-white hover:underline">Electronics</a>
