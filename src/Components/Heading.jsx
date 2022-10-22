@@ -19,9 +19,6 @@ function Heading(props) {
                 <li>
                     <a href="/" className="text-gray-900 dark:text-white hover:underline">Clothing</a>
                 </li>
-                <li>
-                    <a href="/" className="text-gray-900 dark:text-white hover:underline">Others</a>
-                </li>
             </ul>
         </div>
     </div>
