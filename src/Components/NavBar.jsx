@@ -11,8 +11,8 @@ function NavBar(props) {
                 <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{props.heading}</span>
             </a>
             <div className="flex items-center">
-                <a href="tel:+919999999999" className="mr-6 text-sm font-medium text-gray-500 dark:text-white hover:underline">{props.contact}</a>
-                <Link to={"/login"} className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">{props.logStat}</Link>
+              
+              <Link to={"/login"} className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">{props.logStat}</Link>
             </div>
         </div>
     </nav>

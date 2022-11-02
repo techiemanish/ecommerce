@@ -11,7 +11,7 @@ function UserDashboard(props) {
 
     return (
     <>
-    <div class="flex justify-center text-3xl font-medium">Welcome user</div>
+    <div class="flex justify-center text-3xl mt-5 -mb-10 md:mt-0 font-medium">Welcome user</div>
 
     <div class="flex flex-col h-screen md:flex-row justify-center items-center md:-mt-16 ">
   <div class="m-2 rounded-lg shadow-lg bg-white w-64">

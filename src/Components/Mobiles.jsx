@@ -8,7 +8,7 @@ function Mobiles(props) {
     <>
     <Heading/>
 
-    <div className="container mt-3 flex flex-row flex-wrap md:items-center sm:flex-row sm:justify-center sm:items-center">
+    <div className="container mt-3 flex flex-row flex-wrap md:flex-row justify-center items-center">
     <div class=" basis-4/12 md:basis-6/12 m-2 max-w-sm max-auto bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
     <a href="/">
         <img class="p-8 rounded-t-lg" src={logo} alt="product image"/>
