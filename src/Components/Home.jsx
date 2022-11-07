@@ -8,7 +8,7 @@ function Home(props) {
     <>
     <Heading/>
     <ShowCase/>
-    <Products/>
+    <Products handleCart= {props.handleCart}/>
     </>
   )
 }

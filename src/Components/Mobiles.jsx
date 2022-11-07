@@ -1,4 +1,5 @@
 import React from 'react'
+import toast, { Toaster } from 'react-hot-toast'
 import Heading from './Heading'
 import logo from './iphone14.jpg'
 import ShowMoreButton from './ShowMoreButton'
@@ -6,8 +7,11 @@ import ShowMoreButton from './ShowMoreButton'
 function Mobiles(props) {
   return (
     <>
+    <div><Toaster
+      position="top-center"
+      reverseOrder={false}
+    /></div>
     <Heading/>
-
     <div className="container mt-3 flex flex-row flex-wrap md:flex-row justify-center items-center">
     <div class=" basis-4/12 md:basis-6/12 m-2 max-w-sm max-auto bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
     <a href="/">
@@ -29,7 +33,7 @@ function Mobiles(props) {
         <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
         </div>
         <div class="flex justify-between items-center mt-2.5">
-            <a href="/" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Add to cart</a>
+            <button onClick={()=>{props.handleCart();toast.success("Added to cart") }} class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Add to cart</button>
             <a href="/" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Buy now</a>
             </div>
         </div>
@@ -55,7 +59,7 @@ function Mobiles(props) {
         <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
         </div>
         <div class="flex justify-between items-center mt-2.5">
-            <a href="/" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Add to cart</a>
+            <button onClick={()=>{props.handleCart();toast.success("Added to cart") }} class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Add to cart</button>
             <a href="/" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Buy now</a>
             </div>
         </div>
@@ -81,7 +85,7 @@ function Mobiles(props) {
         <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
         </div>
         <div class="flex justify-between items-center mt-2.5">
-            <a href="/" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Add to cart</a>
+            <button onClick={()=>{props.handleCart();toast.success("Added to cart") }} class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Add to cart</button>
             <a href="/" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Buy now</a>
             </div>
         </div>
@@ -107,7 +111,7 @@ function Mobiles(props) {
         <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
         </div>
         <div class="flex justify-between items-center mt-2.5">
-            <a href="/" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Add to cart</a>
+            <button onClick={()=>{props.handleCart();toast.success("Added to cart") }} class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Add to cart</button>
             <a href="/" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Buy now</a>
             </div>
         </div>
@@ -133,7 +137,7 @@ function Mobiles(props) {
         <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
         </div>
         <div class="flex justify-between items-center mt-2.5">
-            <a href="/" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Add to cart</a>
+            <button onClick={()=>{props.handleCart();toast.success("Added to cart") }} class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Add to cart</button>
             <a href="/" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Buy now</a>
             </div>
         </div>
@@ -159,7 +163,7 @@ function Mobiles(props) {
         <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
         </div>
         <div class="flex justify-between items-center mt-2.5">
-            <a href="/" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Add to cart</a>
+            <button onClick={()=>{props.handleCart();toast.success("Added to cart") }} class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Add to cart</button>
             <a href="/" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm md:text-lg px-1 py-0.5 md:px-5 md:py-2.5 md:p-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Buy now</a>
             </div>
         </div>
