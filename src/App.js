@@ -7,8 +7,9 @@ import React, { useEffect, useState } from 'react'
 import Home from './Components/Home';
 import Register from './Components/Register';
 import Mobiles from './Components/Mobiles';
-import UserDashboard from './Components/UserDashboard';
+import UserDashboard from './dashboards/UserDashboard';
 import axios from 'axios';
+import AdminDashboard from './dashboards/AdminDashboard';
 
 function App() {
   let logStat = "Login";
@@ -36,7 +37,8 @@ function App() {
       <Route exact path='/login' element={<Login handleLogout={()=>setlogStatus("Login")}/> }/>
       <Route exact path="/register" element={<Register/>}/>
       <Route exact path="/mobiles" element={<Mobiles handleCart={()=>setcartCount(cartCount+1)}/>}/>
-      <Route exact path="/dashboard" element={<UserDashboard handleLogin ={() =>setlogStatus("log out")} />}/>
+      <Route exact path="/profile" element={<UserDashboard handleLogin ={() =>setlogStatus("log out")} />}/>
+      <Route exact path="/dashboard" element={<AdminDashboard handleLogin ={() =>setlogStatus("log out")} />}/>
     </Routes>
     <Footer heading="E-Commerce" webstat = {status}/>
     </>

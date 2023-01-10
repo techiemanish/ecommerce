@@ -19,7 +19,6 @@ function Footer(props) {
             <a href="/" className="hover:underline">Contact</a>
         </li>
     </ul>  
-    
 </footer>
   )
 }
