@@ -14,7 +14,10 @@ import AdminDashboard from './dashboards/AdminDashboard';
 function App() {
   let logStat = "Login";
   const [logStatus, setlogStatus] = useState(logStat);
-  const [status, setstatus] = useState("flex w-3 h-3 bg-red-500 rounded-full float-right mt-1 md:float-right md:mt-1");
+  const [status, setstatus] = useState({
+    css:"flex w-3 h-3 bg-red-500 rounded-full float-right mt-1 md:float-right md:mt-1",
+    tooltip: "Server is down"
+  });
 
   let productCount = 0;
 
@@ -24,7 +27,10 @@ function App() {
     axios.get("https://ecommerce-api-4fpf.onrender.com/")
     .then((res)=>{
     if(res.status === 200){
-        setstatus("flex w-3 h-3 bg-green-500 rounded-full float-right mt-1 md:float-right md:mt-1");
+        setstatus({
+          css: "flex w-3 h-3 bg-green-500 rounded-full float-right mt-1 md:float-right md:mt-1",
+          tooltip: "Server is up"
+      });
     }
   })
   }, [])
