@@ -10,6 +10,7 @@ import Mobiles from './Components/Mobiles';
 import UserDashboard from './dashboards/UserDashboard';
 import axios from 'axios';
 import AdminDashboard from './dashboards/AdminDashboard';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   let logStat = "Login";
@@ -37,6 +38,10 @@ function App() {
 
   return (
     <>
+    <div><Toaster
+      position="top-center"
+      reverseOrder={false}
+    /></div>
     <NavBar logStat={logStatus} cartStat={cartCount} heading="E-Commerce"/>
     <Routes>
       <Route exact path='/' element={<Home handleCart={()=>setcartCount(cartCount+1)}/>}/>

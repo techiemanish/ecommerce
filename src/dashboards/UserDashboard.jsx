@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Toaster } from 'react-hot-toast';
 
 function UserDashboard(props) {
     useEffect(() => {
