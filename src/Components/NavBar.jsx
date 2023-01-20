@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import EmptyCart from './cart/EmptyCart'
-import FilledCart from './cart/FilledCart'
+import EmptyCart from '../cart/EmptyCart'
+import FilledCart from '../cart/FilledCart'
+
 
 function NavBar(props) {
   return (
@@ -14,7 +15,7 @@ function NavBar(props) {
             </a>
             <div className="flex items-center">
               <a href='/'>
-               {props.cartStat === 0 ? <EmptyCart/> : <FilledCart/>}
+               {props.cartStat === 0 ?  <EmptyCart/>: <FilledCart/>}
               </a>
               <sup className='text-lg'><b>{props.cartStat > 0 && props.cartStat}</b></sup>
               <Link to={"/login"} className="ml-3 text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">{props.logStat}</Link>
