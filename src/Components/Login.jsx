@@ -30,21 +30,12 @@ function Login(props) {
             "password" : data.password
         })
         .then((res)=>{
-            console.log(res);
             if(res.data.status === "Unauthorized"){
                 toast.error(res.data.status + ", Incorrect Credentials")
                 navigate("/login", { replace: true });
             }else{
                 toast.success("Login Successful!")
                 res.data.seller ? navigate("/dashboard", {state: res.data}) : navigate("/profile", {state: res.data})
-            
-                axios
-                .post("https://ecommerce-api-4fpf.onrender.com/token",{
-                    "userName": process.env.REACT_APP_USERNAME,
-                    "password": process.env.REACT_APP_PASSWORD
-                }).then((res)=>{
-                    //console.log(res)
-                })
             }
         }).catch(error=>console.error(error));
     }
