@@ -1,15 +1,14 @@
-import React, { useEffect } from 'react'
-import { Toaster } from 'react-hot-toast';
+import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function AdminDashboard(props) {
-    useEffect(() => {
-        props.handleLogin()
-    }, []);
-    
-
+  const navigate = useNavigate();
+  let data = JSON.parse(localStorage.getItem("loggedInUser"));
+  if(data != null){
+    props.handleLogin();
     return (
     <>
-    <div className="flex justify-center text-2xl mt-2 mb-5 md:mt-0 font-medium">Welcome, Admin!</div>
+    <div className="flex justify-center text-2xl mt-2 mb-5 md:mt-0 font-medium">Welcome, {data.firstname}!</div>
 
     <div className="flex flex-col h-screen md:flex-row justify-center items-center mt-40 md:-mt-40 mb-40 md:-mb-16">
   <div className="m-2 rounded-lg shadow-lg bg-white w-64">
@@ -57,11 +56,12 @@ function AdminDashboard(props) {
       <button type="button" className=" inline-block px-6 py-2.5 float-right my-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">view</button>
     </div>
   </div>
-
-  
 </div>
-    </>
-  )
+  </>)
+  }
+  else{
+    navigate("/");
+  }
 }
 
 export default AdminDashboard

@@ -44,6 +44,7 @@ function App() {
     /></div>
     <NavBar logStat={logStatus} cartStat={cartCount} heading="E-Commerce"/>
     <Routes>
+      <Route path= "*" element={<Home handleCart={()=>setcartCount(cartCount+1)}/>}/>
       <Route exact path='/' element={<Home handleCart={()=>setcartCount(cartCount+1)}/>}/>
       <Route exact path='/login' element={<Login handleLogout={()=>setlogStatus("Login")}/> }/>
       <Route exact path="/register" element={<Register/>}/>

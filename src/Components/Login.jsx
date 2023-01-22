@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 function Login(props) {
     useEffect(() => {
     props.handleLogout();
+    localStorage.clear();
     }, [])
 
     const navigate = useNavigate();
@@ -35,6 +36,7 @@ function Login(props) {
                 navigate("/login", { replace: true });
             }else{
                 toast.success("Login Successful!")
+                localStorage.setItem("loggedInUser", JSON.stringify(res.data));
                 res.data.seller ? navigate("/dashboard", {state: res.data}) : navigate("/profile", {state: res.data})
             }
         }).catch(error=>console.error(error));
