@@ -60,7 +60,7 @@ function AdminDashboard(props) {
   </>)
   }
   else{
-    navigate("/");
+    navigate("/login");
   }
 }
 

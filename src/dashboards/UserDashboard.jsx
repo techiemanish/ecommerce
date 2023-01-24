@@ -66,7 +66,7 @@ function UserDashboard(props) {
       )
     }
     else{
-      navigate("/");
+      navigate("/login");
     }
     
 }

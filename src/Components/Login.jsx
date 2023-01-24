@@ -37,6 +37,7 @@ function Login(props) {
             }else{
                 toast.success("Login Successful!")
                 localStorage.setItem("loggedInUser", JSON.stringify(res.data));
+                setTimeout(()=>{localStorage.removeItem("loggedInUser");navigate("/login");},900000);// 15min * 60sec * 1000ms = 90000ms
                 res.data.seller ? navigate("/dashboard", {state: res.data}) : navigate("/profile", {state: res.data})
             }
         }).catch(error=>console.error(error));
