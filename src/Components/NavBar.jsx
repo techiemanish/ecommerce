@@ -1,10 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useTimer } from 'react-timer-hook';
 import EmptyCart from '../cart/EmptyCart'
 import FilledCart from '../cart/FilledCart'
 
 
 function NavBar(props) {
+  const navigate = useNavigate();
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 900);
+  let expiryTimestamp = time;
+  const {
+    seconds,
+    minutes,
+    hours,
+    days,
+    isRunning,
+    start,
+    pause,
+    resume,
+    restart,
+  } = useTimer({ expiryTimestamp, onExpire: () => navigate("/login") });
+
   return (
     <>   
     <nav className="sticky top-0 bg-white border-gray-200 dark:bg-gray-900">
@@ -14,6 +31,8 @@ function NavBar(props) {
                 <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{props.heading}</span>
             </Link>
             <div className="flex items-center">
+              {localStorage.getItem("loggedInUser") !== null ?<p id="timer" className='text-sm mr-1 font-medium text-blue-600 dark:text-blue-500'>
+                {minutes}:{seconds}</p> : ""}
               <a href='/'>
                {props.cartStat === 0 ?  <EmptyCart/>: <FilledCart/>}
               </a>
