@@ -11,6 +11,7 @@ import UserDashboard from './dashboards/UserDashboard';
 import axios from 'axios';
 import AdminDashboard from './dashboards/AdminDashboard';
 import { Toaster } from 'react-hot-toast';
+import Profile from './common/Profile';
 
 function App() {
   let logStat = "Login";
@@ -51,6 +52,7 @@ function App() {
       <Route exact path="/mobiles" element={<Mobiles handleCart={()=>setcartCount(cartCount+1)}/>}/>
       <Route exact path="/profile" element={<UserDashboard handleLogin ={() =>setlogStatus("log out")} />}/>
       <Route exact path="/dashboard" element={<AdminDashboard handleLogin ={() =>setlogStatus("log out")} />}/>
+      <Route exact path="/personal" element={<Profile/>}/>
     </Routes>
     <Footer heading="E-Commerce" webstat = {status}/>
     </>
