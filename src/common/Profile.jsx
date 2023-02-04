@@ -4,7 +4,7 @@ import LoginWelcome from './LoginWelcome';
 
 function Profile(props) {
     let data = JSON.parse(localStorage.getItem("loggedInUser"));
-    console.log(data);
+    // console.log(data);
   return (
     <>
     <LoginWelcome/>
