@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useTimer } from 'react-timer-hook';
 import EmptyCart from '../cart/EmptyCart'
 import FilledCart from '../cart/FilledCart'
+import ProfileCard from '../profileCard/ProfileCard';
 
 
 function NavBar(props) {
@@ -10,17 +11,17 @@ function NavBar(props) {
   const time = new Date();
   time.setSeconds(time.getSeconds() + 900);
   let expiryTimestamp = time;
-  const {
-    seconds,
-    minutes,
-    hours,
-    days,
-    isRunning,
-    start,
-    pause,
-    resume,
-    restart,
-  } = useTimer({ expiryTimestamp, onExpire: () => navigate("/login") });
+  // const {
+  //   seconds,
+  //   minutes,
+  //   hours,
+  //   days,
+  //   isRunning,
+  //   start,
+  //   pause,
+  //   resume,
+  //   restart,
+  // } = useTimer({ expiryTimestamp, onExpire: () => navigate("/login") });
 
   return (
     <>   
@@ -31,13 +32,18 @@ function NavBar(props) {
                 <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{props.heading}</span>
             </Link>
             <div className="flex items-center">
-              {localStorage.getItem("loggedInUser") !== null ?<p id="timer" className='text-sm mr-1 font-medium text-blue-600 dark:text-blue-500'>
-                {minutes}:{seconds}</p> : ""}
+              {/* Timer for login session */}
+              {/* {localStorage.getItem("loggedInUser") !== null ?<p id="timer" className='text-sm mr-1 font-medium text-blue-600 dark:text-blue-500'>
+                {minutes}:{seconds}</p> : ""} */}
+                {/* {localStorage.getItem("loggedInUser") !== null ?<ProfileCard/>: ""} */}
               <a href='/'>
                {props.cartStat === 0 ?  <EmptyCart/>: <FilledCart/>}
               </a>
               <sup className='text-lg'><b>{props.cartStat > 0 && props.cartStat}</b></sup>
-              <Link to={"/login"} className="ml-3 text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">{props.logStat}</Link>
+              {localStorage.getItem("loggedInUser") !== null 
+              ?<ProfileCard/>
+              :<Link to={"/login"} className="ml-5 text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">{props.logStat}</Link>}
+              
             </div>
         </div>
     </nav>
