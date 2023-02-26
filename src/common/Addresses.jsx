@@ -7,7 +7,7 @@ function Addresses(props) {
   return (
     <>
   <LoginWelcome />
-  <div className="flex flex-col h-screen md:flex-row justify-center items-center mt-40 md:-mt-40 mb-40 md:-mb-16">
+  <div className="flex flex-col md:flex-wrap md:flex-row justify-center items-center mt-0 md:mt-0 mb-8 md:mb-8">
     
     {data.address.map((value) => {
       return (
