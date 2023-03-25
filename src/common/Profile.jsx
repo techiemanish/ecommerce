@@ -4,8 +4,9 @@ import LoginWelcome from './LoginWelcome';
 
 function Profile(props) {
     let data = JSON.parse(localStorage.getItem("loggedInUser"));
+    let limitedData = data.address.slice(0,2);
     const navigate = useNavigate();
-    // console.log(data);
+    console.log(limitedData.length);
     if(data != null){
         return (
             <>
@@ -15,11 +16,11 @@ function Profile(props) {
             <p><b>Email : </b>{data.email}</p><br/>
             <p><b>Mobile Number : </b>{data.phone}</p><br/>
             <p><b>Adreess : </b>
-            {data.address.length === 0
+            {limitedData.length === 0
             ? 
                 <><Link className='underline' to={"/address"}>Add address</Link></> 
             : 
-                data.address.map((value)=>{
+                limitedData.map((value)=>{
                     return(
                     <>
                     <p className='ml-20 -mt-6'> {value.firstName + " " + value.lastName}<br/>
@@ -31,7 +32,7 @@ function Profile(props) {
                 })
             }
             {
-                data.address.length !== 0 ? <Link className='underline float-right -mt-5' to={"/address"}>Manage address</Link> : ""
+                data.address.length !== 0 ? <Link className='underline float-right -mt-5 text-blue-600' to={"/address"}>View more</Link> : ""
             }
             </p>
             </div>
