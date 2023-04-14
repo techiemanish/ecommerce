@@ -6,7 +6,6 @@ function Profile(props) {
     let data = JSON.parse(localStorage.getItem("loggedInUser"));
     let limitedData = data.address.slice(0,2);
     const navigate = useNavigate();
-    console.log(limitedData.length);
     if(data != null){
         return (
             <>

@@ -17,6 +17,7 @@ import Addresses from './common/Addresses';
 function App() {
   let logStat = "Login";
   const [logStatus, setlogStatus] = useState(logStat);
+  const [token, setToken] = useState('');
   const [status, setstatus] = useState({
     css:"flex w-3 h-3 bg-red-500 rounded-full float-right mt-1 md:float-right md:mt-1",
     tooltip: "Server is down"
@@ -34,6 +35,10 @@ function App() {
           css: "flex w-3 h-3 bg-green-500 rounded-full float-right mt-1 md:float-right md:mt-1",
           tooltip: "Server is up"
       });
+      let data = JSON.parse(localStorage.getItem("loggedInUser"));
+      if(null !== data){
+        setToken(data.jwtToken.token);
+      }
     }
   })
   }, [])
