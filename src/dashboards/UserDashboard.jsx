@@ -11,7 +11,7 @@ function UserDashboard(props) {
         <>
         <LoginWelcome/>
     
-        <div className="flex flex-col h-screen md:flex-row justify-center items-center mt-40 md:-mt-40 mb-40 md:-mb-16">
+        <div className="flex flex-col md:flex-wrap md:flex-row justify-center items-center mt-0 md:mt-0 mb-16 md:mb-28">
       <div className="m-2 rounded-lg shadow-lg bg-white w-64">
         <div className="p-6">
           <h5 className="text-gray-900 text-xl font-medium mb-2">
