@@ -1,9 +1,15 @@
 import React, { useEffect, useRef } from 'react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function ProfileCard(props) {
     const myref = useRef();
+
+    const navigate = useLocation();
+
+    const handleLogout = () =>{
+      navigate("/login")
+    }
 
     let data = JSON.parse(localStorage.getItem("loggedInUser"));
     
@@ -61,7 +67,7 @@ function ProfileCard(props) {
                 <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Inventory</a>
               </li>
               <li>
-                <Link to={"/login"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</Link>
+                <Link to={"/login"} onClick={handleLogout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</Link>
               </li>
             </ul>
           </div>
@@ -98,7 +104,7 @@ function ProfileCard(props) {
                 <Link to={"/address"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Addresses</Link>
               </li>
               <li>
-                <Link to={"/login"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</Link>
+                <Link to={"/login"} onClick={handleLogout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</Link>
               </li>
             </ul>
           </div>
