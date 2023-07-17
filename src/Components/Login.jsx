@@ -3,8 +3,11 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { toast, Toaster } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import Loader from '../utils/Loader';
 
 function Login(props) {
+    const [loading, setloading] = useState(false);
+
     useEffect(() => {
     props.handleLogout();
     localStorage.clear();
@@ -25,12 +28,14 @@ function Login(props) {
 
     const login = (e) =>{
         e.preventDefault();
+        setloading(true);
         axios
         .post("https://ecommerce-api-4fpf.onrender.com/api/login", {
             "email":data.email,
             "password" : data.password
         })
         .then((res)=>{
+            setloading(false);
             if(res.data.status === "Unauthorized"){
                 toast.error(res.data.status + ", Incorrect Credentials")
                 navigate("/login", { replace: true });
@@ -47,7 +52,8 @@ function Login(props) {
     }
     
   return (
-    <>    
+    <>
+    {loading ? <Loader/> : null}    
     <div className="p-4 m-5 w-full max-w-sm mx-auto bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
     <form className="space-y-6" method='POST' onSubmit={(e)=>{login(e)}}>
         <h5 className="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
