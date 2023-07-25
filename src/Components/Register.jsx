@@ -31,6 +31,7 @@ function Register(props) {
     
     const login = (e) =>{
         e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
         setloading(true);
         axios.post("https://ecommerce-api-4fpf.onrender.com/api/signup",{
             "firstname": data.firstname,
@@ -52,7 +53,7 @@ function Register(props) {
         })
         .catch(error=>console.error(error))
         .finally(()=>{
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            // window.scrollTo({ top: 0, behavior: "smooth" });
         })
     }
 
