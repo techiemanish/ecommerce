@@ -15,8 +15,11 @@ function DeleteConfirmModal(props) {
     e.preventDefault();
     if (isDeleteButtonEnabled) {
         DeleteAccount();
-        navigate("/login", { replace: true })
-        closeModal();
+        setTimeout(()=>{
+          navigate("/login", { replace: true })
+          closeModal();
+        }, 3000);
+        
     }
     
   };
