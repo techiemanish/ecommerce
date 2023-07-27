@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Modal from 'react-modal'
 import DeleteAccount from './DeleteAccount';
 import { useNavigate } from 'react-router-dom';
+import Loader from '../utils/Loader';
 
 function DeleteConfirmModal(props) {
+    const [loading, setloading] = useState(false);
     const navigate = useNavigate();
     const [inputValue, setInputValue] = useState('');
     const isDeleteButtonEnabled = inputValue === 'DELETE';
@@ -14,6 +16,7 @@ function DeleteConfirmModal(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isDeleteButtonEnabled) {
+        setloading(true);
         DeleteAccount();
         setTimeout(()=>{
           navigate("/login", { replace: true })
@@ -59,6 +62,8 @@ function DeleteConfirmModal(props) {
         Warning: Deleting your account will remove all your personal information from our system. You will lose access to your orders, wishlist, and personal details. Your account cannot be recovered once deleted.
       </p>
       <center>
+      {loading ? <Loader/> : null}
+      <br/>
       <button
             className={`px-2 py-1 md:px-4 md:py-2 text-white rounded-md ${
               isDeleteButtonEnabled ? 'bg-red-600 hover:bg-red-700 focus:ring-2 focus:ring-red-600' : 'bg-gray-400 cursor-not-allowed'
