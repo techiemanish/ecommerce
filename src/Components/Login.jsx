@@ -27,6 +27,7 @@ function Login(props) {
     }
 
     const login = (e) =>{
+        window.scrollTo({ top: 0, behavior: "smooth" });
         e.preventDefault();
         setloading(true);
         axios
@@ -39,7 +40,12 @@ function Login(props) {
             if(res.data.status === "Unauthorized"){
                 toast.error(res.data.status + ", Incorrect Credentials")
                 navigate("/login", { replace: true });
-            }else{
+            }
+            else if(res.data.status === "No Account exist with this mail"){
+                toast.error(res.data.status + ". " + res.data.message);
+                navigate("/register",{replace: true})
+            }
+            else{
                 toast.success("Login Successful!")
                 localStorage.setItem("loggedInUser", JSON.stringify(res.data));
                 let data = JSON.parse(localStorage.getItem("loggedInUser"));
