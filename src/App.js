@@ -13,6 +13,7 @@ import AdminDashboard from './dashboards/AdminDashboard';
 import { Toaster } from 'react-hot-toast';
 import Profile from './common/Profile';
 import Addresses from './common/Addresses';
+import Reviews from './common/Reviews';
 
 function App() {
   let logStat = "Login";
@@ -60,6 +61,7 @@ function App() {
       <Route exact path="/dashboard" element={<AdminDashboard handleLogin ={() =>setlogStatus("log out")} />}/>
       <Route exact path="/personal" element={<Profile/>}/>
       <Route exact path="/address" element={<Addresses/>}/>
+      <Route exact path="/reviews" element={<Reviews/>}/>
     </Routes>
     <Footer heading="E-Commerce" webstat = {status}/>
     </>
