@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import LoginWelcome from '../common/LoginWelcome';
 import DeleteAccount from './DeleteAccount';
+import DeleteConfirmModal from './DeleteConfirmModal';
 
 function AdminDashboard(props) {
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
   const navigate = useNavigate();
   const handleDelete = () =>{
-    DeleteAccount();
+    setShowDeleteModal(true);
+    //DeleteAccount();
   }
   let data = JSON.parse(localStorage.getItem("loggedInUser"));
   if(data != null){
@@ -64,6 +68,8 @@ function AdminDashboard(props) {
     <center>
     <button type="submit" onClick={handleDelete} className="w-6/12 mb-8 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Delete Account</button>
     </center>
+    {/* Delete Confirmation Modal */}
+    {showDeleteModal && <DeleteConfirmModal closeModal={() => setShowDeleteModal(false)} />}
   </>)
   }
   else{
